@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    {% for title, price in best_offers %}
+    {% for title, first_price, second_price in best_offers %}
         {{title}}
-    {{price}}<br>
+    {{first_price}}
+    {{second_price}}<br>
     {% endfor %}
 </body>
 </html>
