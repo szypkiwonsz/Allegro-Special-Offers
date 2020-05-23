@@ -51,15 +51,17 @@ class BestOffers(Allegro):
         second_price = self.price_to_int(second_price)
         difference = first_price - second_price
         x = 100 * difference // first_price
-        return x
+        return int(x)
 
     def best_offers(self):
+        percentage_list = []
         best_offers_names = self.get_best_offers_names()
         best_offers_first_price = self.get_best_offers_first_price()
         best_offers_second_price = self.get_best_offers_second_price()
         for first_price, second_price in zip(best_offers_first_price, best_offers_second_price):
-            print(self.percentage(first_price, second_price))
-        return zip(best_offers_names, best_offers_first_price, best_offers_second_price)
+            x = self.percentage(first_price, second_price)
+            percentage_list.append(str(x) + '%')
+        return zip(best_offers_names, best_offers_first_price, best_offers_second_price, percentage_list)
 
     # def category_offers(self):
     #     other_offersx = self.soup.find('div', {'data-box-name': 'MMO_KONTENER_KATEGORIE'})
