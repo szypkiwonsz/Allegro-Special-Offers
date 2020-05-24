@@ -30,6 +30,13 @@ class BestOffers(Allegro):
             offer_list.append(best_offer_value)
         return offer_list
 
+    def get_best_offer_image(self, html_char, attribute):
+        offer_list = []
+        for best_offer in self.best_offers_products:
+            best_offer_value = best_offer.find(html_char, attribute).img['data-src']
+            offer_list.append(best_offer_value)
+        return offer_list
+
     def get_best_offers_names(self):
         return self.get_best_offer_value('a', {'class': '_1h7wt _15mod _07bcb_2W89U'})
 
@@ -39,29 +46,39 @@ class BestOffers(Allegro):
     def get_best_offers_second_price(self):
         return self.get_best_offer_value('span', {'class': '_1svub _lf05o'})
 
+    def get_best_offers_image(self):
+        return self.get_best_offer_image('div', {'class': '_mitvy _qdoeh _1rcax _l7nkx _nyhhx _r6475 _7qjq4'})
+
     @staticmethod
-    def price_to_int(price):
+    def price_to_float(price):
         price = price.replace(',', '.')
         price = price.replace(' ', '')
         price = price[:-3]
         return float(price)
 
     def percentage(self, first_price, second_price):
-        first_price = self.price_to_int(first_price)
-        second_price = self.price_to_int(second_price)
+        first_price = self.price_to_float(first_price)
+        second_price = self.price_to_float(second_price)
         difference = first_price - second_price
         x = 100 * difference // first_price
         return int(x)
 
+    @staticmethod
+    def capitalize_offer_name(offers_names):
+        capitalized_offers_names = [x.title() for x in offers_names]
+        return capitalized_offers_names
+
     def best_offers(self):
         percentage_list = []
+        best_offers_images = self.get_best_offers_image()
         best_offers_names = self.get_best_offers_names()
+        best_offers_names = self.capitalize_offer_name(best_offers_names)
         best_offers_first_price = self.get_best_offers_first_price()
         best_offers_second_price = self.get_best_offers_second_price()
         for first_price, second_price in zip(best_offers_first_price, best_offers_second_price):
             x = self.percentage(first_price, second_price)
             percentage_list.append(str(x) + '%')
-        return zip(best_offers_names, best_offers_first_price, best_offers_second_price, percentage_list)
+        return zip(best_offers_images, best_offers_names, best_offers_first_price, best_offers_second_price, percentage_list)
 
     # def category_offers(self):
     #     other_offersx = self.soup.find('div', {'data-box-name': 'MMO_KONTENER_KATEGORIE'})
