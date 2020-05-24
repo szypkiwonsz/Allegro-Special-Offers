@@ -5,13 +5,20 @@
     <title>Oferty Specjalne Allegro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    {% for title, first_price, second_price, percentage in best_offers %}
-        {{title}}
-    {{first_price}}
-    {{second_price}}
-    {{percentage}}<br>
+<div class="container">
+    {% for image, offer_name, first_price, second_price, percentage in best_offers %}
+    <div class="border border-secondary rounded p-5 m-3">
+        <img src="{{image}}" class="rounded float-left">
+        {{offer_name}}
+        <span class="float-right">[{{percentage}}]</span>
+        <span class="text-success float-right mr-3">{{second_price}}</span>
+        <span class="text-danger float-right mr-3">{{first_price}}</span>
+        <br>
+    </div>
     {% endfor %}
+</div>
 </body>
 </html>
