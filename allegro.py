@@ -79,24 +79,3 @@ class BestOffers(Allegro):
             x = self.percentage(first_price, second_price)
             percentage_list.append(str(x) + '%')
         return zip(best_offers_images, best_offers_names, best_offers_first_price, best_offers_second_price, percentage_list)
-
-    # def category_offers(self):
-    #     other_offersx = self.soup.find('div', {'data-box-name': 'MMO_KONTENER_KATEGORIE'})
-    #
-    #     for other_offers in other_offersx.find_all('div', {
-    #         'class': 'opbox-sheet-wrapper _7qjq4 _1yhvf _7ccvy _26e29_2AYAm _9huvz'})[1:]:
-    #         category_name = other_offers.find('h2', {
-    #             'class': 'container-header _1s2v1 _n2pii _35enf _sdhee _9f0v0 _g1a3g _1bwbg _1pelm'})
-    #         print(category_name.text)
-    #         print('---')
-    #         for offer in other_offers.find_all('div', {
-    #             'class': '_3kk7b _07bcb_CWOtz _vnd3k _1h8s6 _n1rmb _1t6t8 _m44ca _07bcb_3q-O5'}):
-    #             offer_name = offer.find('a', {'class': '_1h7wt _15mod _07bcb_2W89U'}).text
-    #             print(offer_name)
-    #             try:
-    #                 offer_first_price = offer.find('span', {"class": "_swyoj _07bcb_1sAFC"}).text
-    #                 offer_second_price = offer.find('span', {"class": "_1svub _lf05o"}).text
-    #             except AttributeError as e:
-    #                 offer_first_price = 'Brak promocji'
-    #                 offer_second_price = 'Nowość!'
-    #             print(f'{offer_first_price} ---> {offer_second_price}')
