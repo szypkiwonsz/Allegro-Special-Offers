@@ -9,7 +9,8 @@ app = Flask(__name__)
 def main():
     source = requests.get('https://allegro.pl/strefaokazji').text
     best_offers_products = BestOffers(source)
-    best_offers = sorted(best_offers_products.best_offers(), key=lambda x: int((x[4]).replace('%', '')), reverse=True)
+    best_offers_sorted = sorted(best_offers_products.best_offers(), key=lambda x: int((x[4]).replace('%', '')),
+                                reverse=True)
     return render_template('index.html', **locals())
 
 
