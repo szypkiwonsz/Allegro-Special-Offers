@@ -5,9 +5,9 @@ class Allegro:
 
     def __init__(self, site):
         self.site = site
-        self.soup = self.get_all_html()
+        self.soup = self.get_site_html()
 
-    def get_all_html(self):
+    def get_site_html(self):
         return BeautifulSoup(self.site, 'lxml')
 
 
@@ -19,9 +19,9 @@ class BestOffers(Allegro):
 
     def best_offers_html(self):
         best_offers_all_html = self.soup.find('div', {'data-box-name': 'MMO_ADVERT'})
-        best_offers_html = best_offers_all_html.find_all('div', {
+        best_offers_products_html = best_offers_all_html.find_all('div', {
             'class': '_3kk7b _07bcb_CWOtz _vnd3k _1h8s6 _n1rmb _1t6t8 _m44ca _07bcb_3q-O5'})
-        return best_offers_html
+        return best_offers_products_html
 
     def get_best_offer_value(self, html_char, attribute):
         offer_list = []
@@ -56,7 +56,7 @@ class BestOffers(Allegro):
         price = price[:-3]
         return float(price)
 
-    def percentage(self, first_price, second_price):
+    def promotion_percentage(self, first_price, second_price):
         first_price = self.price_to_float(first_price)
         second_price = self.price_to_float(second_price)
         difference = first_price - second_price
@@ -76,6 +76,7 @@ class BestOffers(Allegro):
         best_offers_first_price = self.get_best_offers_first_price()
         best_offers_second_price = self.get_best_offers_second_price()
         for first_price, second_price in zip(best_offers_first_price, best_offers_second_price):
-            x = self.percentage(first_price, second_price)
-            percentage_list.append(str(x) + '%')
-        return zip(best_offers_images, best_offers_names, best_offers_first_price, best_offers_second_price, percentage_list)
+            price_percentage = self.promotion_percentage(first_price, second_price)
+            percentage_list.append(str(price_percentage) + '%')
+        return zip(best_offers_images, best_offers_names, best_offers_first_price, best_offers_second_price,
+                   percentage_list)
