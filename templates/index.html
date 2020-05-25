@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    {% for image, offer_name, first_price, second_price, percentage in best_offers %}
+    {% for image, offer_name, first_price, second_price, percentage in best_offers_sorted %}
     <div class="border border-secondary rounded p-5 m-3">
         <img src="{{image}}" class="rounded float-left">
         {{offer_name}}
