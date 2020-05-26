@@ -44,13 +44,20 @@ class BestOffers(Allegro):
         return self.get_best_offer_value('a', {'class': '_1h7wt _15mod _07bcb_2W89U'})
 
     def get_best_offers_first_price(self):
-        return self.get_best_offer_value('span', {'class': '_swyoj _07bcb_1sAFC'})
+        try:
+            return self.get_best_offer_value('span', {'class': '_swyoj _07bcb_1sAFC'})
+        except AttributeError:
+            return self.get_best_offer_value('span', {'class': 'msa3_z4 _07bcb_1sAFC'})
 
     def get_best_offers_second_price(self):
         return self.get_best_offer_value('span', {'class': '_1svub _lf05o'})
 
     def get_best_offers_image(self):
-        return self.get_best_offer_image('div', {'class': '_mitvy _qdoeh _1rcax _l7nkx _nyhhx _r6475 _7qjq4'})
+        try:
+            return self.get_best_offer_image('div', {'class': '_mitvy _qdoeh _1rcax _l7nkx _nyhhx _r6475 _7qjq4'})
+        except AttributeError:
+            return self.get_best_offer_image('div', {
+                'class': 'mpof_z0 mp7g_f6 mj7u_0 mq1m_0 mnjl_0 mqm6_0 m7er_k4 m7er_k4 m7er_wn'})
 
     @staticmethod
     def price_to_float(price):
