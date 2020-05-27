@@ -16,28 +16,24 @@ Flask
 pip install Flask
 ```
 ---
-
 requests
 
 ```
 pip install requests
 ```
 ---
-
 Beautiful Soup
 
 ```
 pip install beautifulsoup4
 ```
 ---
-
 lxml
 
 ```
 pip install lxml
 ```
 ---
-
 html5lib
 
 ```
