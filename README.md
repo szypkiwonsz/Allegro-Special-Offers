@@ -10,34 +10,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Flask
+Libraries and Packages
 
 ```
-pip install Flask
-```
----
-requests
-
-```
-pip install requests
-```
----
-Beautiful Soup
-
-```
-pip install beautifulsoup4
-```
----
-lxml
-
-```
-pip install lxml
-```
----
-html5lib
-
-```
-pip install html5lib
+pip install -r requirements.txt
 ```
 ---
 
