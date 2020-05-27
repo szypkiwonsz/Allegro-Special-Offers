@@ -59,6 +59,13 @@ class BestOffers(Allegro):
             return self.get_best_offer_image('div', {
                 'class': 'mpof_z0 mp7g_f6 mj7u_0 mq1m_0 mnjl_0 mqm6_0 m7er_k4 m7er_k4 m7er_wn'})
 
+    def get_best_offers_percentage(self, first_value, second_value):
+        percentage_list = []
+        for first_price, second_price in zip(first_value, second_value):
+            price_percentage = self.promotion_percentage(first_price, second_price)
+            percentage_list.append(str(price_percentage) + '%')
+        return percentage_list
+
     @staticmethod
     def price_to_float(price):
         price = price.replace(',', '.')
@@ -79,14 +86,11 @@ class BestOffers(Allegro):
         return capitalized_offers_names
 
     def best_offers(self):
-        percentage_list = []
         best_offers_images = self.get_best_offers_image()
         best_offers_names = self.get_best_offers_names()
         best_offers_names = self.capitalize_offer_name(best_offers_names)
         best_offers_first_price = self.get_best_offers_first_price()
         best_offers_second_price = self.get_best_offers_second_price()
-        for first_price, second_price in zip(best_offers_first_price, best_offers_second_price):
-            price_percentage = self.promotion_percentage(first_price, second_price)
-            percentage_list.append(str(price_percentage) + '%')
+        best_offers_percentage = self.get_best_offers_percentage(best_offers_first_price, best_offers_second_price)
         return zip(best_offers_images, best_offers_names, best_offers_first_price, best_offers_second_price,
-                   percentage_list)
+                   best_offers_percentage)
