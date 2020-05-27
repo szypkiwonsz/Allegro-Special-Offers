@@ -25,7 +25,7 @@ A step by step series of examples that tell you how to run a script
 Download project
 ```
 ```
-Run terminal with choosen folder "Data-Exchange-Python-JavaScript>"
+Run terminal with choosen folder "Allegro-Special-Offers>"
 ```
 ```
 Type "flask run", to start the server.
