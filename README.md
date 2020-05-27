@@ -1,4 +1,5 @@
-# Allegro-Special-Offers - [Live Site](https://allegro-special-offers.herokuapp.com/)
+# Allegro-Special-Offers 
+https://allegro-special-offers.herokuapp.com/
 
 A simple web scraper extracting products from the "Brand Hits Mega Occasion" section from site: https://allegro.pl/strefaokazji. 
 Displays product photo, original price, promotional price and discount percentage. 
