@@ -20,8 +20,10 @@ class BestOffers(Allegro):
     def best_offers_html(self):
         if self.soup.find('div', {'data-box-name': 'MMO_ADVERT'}):
             best_offers_all_html = self.soup.find('div', {'data-box-name': 'MMO_ADVERT'})
-        else:
+        elif self.soup.find('div', {'data-box-name': 'MMO_ADVERT_KARUZELA_poniedziałek'}):
             best_offers_all_html = self.soup.find('div', {'data-box-name': 'MMO_ADVERT_KARUZELA_poniedziałek'})
+        else:
+            best_offers_all_html = self.soup.find('div', {'data-box-name': 'OKAZJE_DNIA'})
         best_offers_html = best_offers_all_html.find_all('div', {
             'class': '_3kk7b _07bcb_CWOtz _vnd3k _1h8s6 _n1rmb _1t6t8 _m44ca _07bcb_3q-O5'})
         return best_offers_html
