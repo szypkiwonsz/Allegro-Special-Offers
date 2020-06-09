@@ -32,7 +32,7 @@ Install requirements
 Run terminal with choosen folder "Allegro-Special-Offers>"
 ```
 ```
-Type "flask run", to start the server.
+Type "flask run", to start the server
 ```
 ---
 ## Built With
