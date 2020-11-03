@@ -1,4 +1,5 @@
-# Allegro-Special-Offers
+# Allegro-Special-Offers 
+[**See Project Live Here**](https://allegro-special-offers.herokuapp.com/)
 
 A simple web scraper extracting products from the "Brand Hits Mega Occasion" section from site: https://allegro.pl/strefaokazji. 
 Displays product photo, original price, promotional price and discount percentage. 
@@ -25,10 +26,13 @@ A step by step series of examples that tell you how to run a script
 Download project
 ```
 ```
-Run terminal with choosen folder "Data-Exchange-Python-JavaScript>"
+Install requirements
 ```
 ```
-Type "flask run", to start the server.
+Run terminal with choosen folder "Allegro-Special-Offers>"
+```
+```
+Type "flask run", to start the server
 ```
 ---
 ## Built With
