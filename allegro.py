@@ -43,7 +43,7 @@ class BestOffers(Allegro):
         return offer_list
 
     def get_best_offers_names(self):
-        return self.get_best_offer_value('a', {'class': '_1h7wt _15mod _07bcb_2W89U'})
+        return self.get_best_offer_value('a', {'class': '_1h7wt _15mod mj9z_5r _07bcb_2W89U'})
 
     def get_best_offers_first_price(self):
         try:
@@ -56,7 +56,7 @@ class BestOffers(Allegro):
 
     def get_best_offers_image(self):
         try:
-            return self.get_best_offer_image('div', {'class': '_mitvy _qdoeh _1rcax _l7nkx _nyhhx _r6475 _7qjq4'})
+            return self.get_best_offer_image('div', {'class': 'mpof_z0 mp7g_f6 mj7u_0 mq1m_0 mnjl_0 mqm6_0 m7er_k4'})
         except AttributeError:
             return self.get_best_offer_image('div', {
                 'class': 'mpof_z0 mp7g_f6 mj7u_0 mq1m_0 mnjl_0 mqm6_0 m7er_k4 m7er_k4 m7er_wn'})
